@@ -1,8 +1,338 @@
-body{
-    
+@import "bulma.css";
+
+
+.ColorX{
+
     background: #808080;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #3fada8, #808080);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #3fada8, #808080); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
     
 }
+
+
+.page-contents-style{
+  padding: 1.5rem;
+}
+
+.blurX{
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for separation */
+    
+}
+
+.blur-white{
+  
+  padding: 1.5rem;
+
+  font-weight: normal;
+  color: #23272a;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.205);
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for separation */
+  
+}
+
+.blur-dark{
+  color: whitesmoke;
+  backdrop-filter: blur(10px);
+  background-color:  #23272a  ;
+  box-shadow: 0px -5px 10px rgb(127, 148, 137); /* Add a subtle shadow for separation */
+  
+}
+.hero-bodyX{
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.hero-bodyX div{
+    width: 100%;
+    align-content: center;
+
+}
+.hero-image img{
+    max-height: 380px;
+}
+
+
+.svg-opacity{
+    opacity: 90%;
+}
+.svg-opacity text{
+    font-size: 22px;
+    font-weight: bolder;
+
+}
+
+
+.footerX {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Set the background color with transparency */
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+    padding: 20px;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for separation */
+    z-index: 100; /* Ensure the footer is above other content */
+  }
+  
+  .footerX p {
+    margin: 0;
+  }
+  
+
+.bulma-brand-logo{
+    height: 12px;
+}
+
+.dj{
+    height: 14px;
+    font-weight: bolder;
+    color: darkgreen;
+}
+
+
+.title-box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+
+
+         
+
+
+         
+  .page-title-button1 {
+    background-image: linear-gradient(to right, #606c88 0%, #3f4c6b  51%, #606c88  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .page-title-button1:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+
+         
+         
+  .page-title-button {
+    background-image: linear-gradient(to right, #4776E6 0%, #8E54E9  51%, #4776E6  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+ 
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .page-title-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .page-title-button2 {
+    background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+  
+  .page-title-button2:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+  .page-title-box {
+    
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+ 
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .page-title-box:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+
+
+.title-box {
+    width: 250px;
+    height: auto;
+    background-image: linear-gradient(to right, #DA22FF 0%, #9733EE  51%, #DA22FF  100%);
+    margin: 10px;
+    margin-top: 90px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.title-box:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+    
+
+
+.containerX {
+    display: contents;
+    justify-content: space-evenly;
+    padding: 4px;
+  }
+  
+  .columnX {
+
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 1%;
+    box-sizing: border-box;
+
+
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+
+  }
+  
+  .columnX:last-child {
+    margin-right: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .containerX {
+      flex-direction: column;
+    }
+  
+    .columnX {
+      margin-right: 0;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+  }
+
+
+
+
+
+
+
+
+           
+         
+         
+  .more-button {
+    background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB  51%, #B993D6  100%);
+    margin: 7px;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bolder;
+    text-transform: capitalize;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(3, 3, 3);            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 20px;
+    display: block;
+  }
+
+  .more-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+ 
+
+
+
+  .quote-container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .quote-text {
+    font-size: 24px;
+    font-style: italic;
+    color: #333;
+    padding: 20px;
+
+  }
+  
+
+
+  .poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+
+
+ .comment-form{
+    color: snow;
+    background-color:  #23272a ;
+ }
+
+
+
+         
+

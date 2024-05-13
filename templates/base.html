@@ -1,17 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html >
+  <head>
     <meta charset="utf-8">
-    <title>Curious Much? | Curio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Curio{% block page_title_last_part %}{% endblock page_title_last_part %}</title>
+    <!--Favicon-->
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}">
+    <!--Bootstrp Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--Coustom CSS-->
     {% load static %}
     <link rel="stylesheet" href="{% static 'base.css' %}">
+
+  </head>
+
+  <body class="has-navbar-fixed-top content has-text-weight-medium is-size-5 ColorX">
+    <div class="page-contents-style">
+    <header>
+      <nav class="navbar blurX has-shadow  is-transparent  is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="{% url 'blog_index' %}">
+            {% load static %}
+            <img src="{% static 'images/favicon.svg' %}" alt="Curio" height="28">
+          </a>
+
+          <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" data-target="SimpleNav">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="SimpleNav" class="navbar-menu blurX navbar-menuX">
+          <div class="navbar-end ">
+            <a class="navbar-item" href="{% url 'blog_index' %}">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="bi bi-file-richtext-fill"></i>
+                </span>
+                <span>Posts</span>
+              </span>
+            </a>
+
+            <a class="navbar-item" href="{% url 'blog_category_list' %}">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="bi bi-tags-fill"></i>
+                </span>
+                <span>Categories</span>
+              </span>
+            </a>
+            <hr class="navbar-divider">
+            
+          </div>
+        
+
+          <div class="navbar-end">
+          <a class="navbar-item"  href="#">
+            <span class="icon">
+              <i class="bi bi-pencil-square"></i>
+            </span>
+          </a>
+          <a class="navbar-item"  href="#">
+            <span class="icon">
+              <i class="bi bi-person-circle"></i>
+            </span>
+          </a>
+
+
+          </div>
+        </div>
+
+
+        
+      </nav>
+
+ 
+    </header>
+    {% block page_title %}
+    <section class="hero">
+      <div class="hero-body hero-bodyX is-relative is-flex-tablet container">
+
+      <div class="is-size-4  has-text-weight-semibold">
+          <span>Hi there! Welcome to</span>
+          <p class="title">Curio</p>
+          <p class="subtitle">A Minimal & Comfotable site to share your thoughts & adventure logs.<i class="bi bi-heart-fill"></i></p>
+      </div>
+
+      <div class="hero-image ">
+          {% load static %}
+          <img  src="{% static 'images/logo.png' %}" alt="Curio-logo">
+      </div>
+
+      </div>
+  </section>
     
-</head>
-<body>
-<h1>My Personal Blog</h1>
-<a href="{% url 'blog_index' %}">Home</a>
-<hr>
-{% block page_title %}{% endblock page_title %}
-{%block page_content %} {% endblock page_content %}
-</body>
-</html>
+    {% endblock page_title %}
+
+
+    {%block page_content %} {% endblock page_content %}
+
+
+
+
+
+
+
+
+
+  </div>
+  <footer class="footerX has-text-centered">
+  
+      <p>
+        Made by <a href="https://zobayer.solus.quest">ZH</a> with 
+        <i class="bi bi-heart-fill"></i>-
+        -<a class="dj" href="https://www.djangoproject.com/">dj</a>-
+        <a href="https://bulma.io/">-
+          {% load static %}
+          <img class="bulma-brand-logo" src="{% static 'images/bulma.png' %}" alt="Bulma" ></a>-
+        <a href="https://icons.getbootstrap.com/">-<i class="bi bi-bootstrap-fill"></i><b>icon</b></a>
+      </p>
+    
+  </footer>
+
+
+<!--JS-->
+    {% load static %}
+    <script src="{% static 'script.js' %}"></script>
+  </body>
+  </html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Post, Comment 
+from blog.models import Post, Comment, Category
 from django.http import HttpResponseRedirect
 from blog.forms import CommentForms
 
@@ -41,3 +41,13 @@ def blog_detail(request, pk):
         "form":CommentForms(),
     }
     return render(request, "blog/detail.html", context)
+
+def blog_category_list(request):
+    categories = Category.objects.all().order_by("name")
+    posts=Post.objects.all().order_by('-created_on')
+    context = {
+        "categories":categories,
+        "posts":posts,
+
+    }
+    return render(request, "blog/category_list.html", context)

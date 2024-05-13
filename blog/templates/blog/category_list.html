@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block page_title_last_part %} | Categories{% endblock page_title_last_part %}
+{% block page_title %}
+<div class="title-box-container">
+    <h1 class="title is-2">Categories</h1>
+</div>
+{% endblock page_title %}
+{% block page_content %}
+
+
+
+<div class="container">
+    <div class="tags block is-align-items-center">
+        {% for category in categories %}
+            <a href="{% url 'blog_category' category.name %}">
+            <span class="tag is-hoverable is-primary is-large">{{ category.name }}</span>
+        </a>
+        
+        {% endfor %}
+    </div>
+    {% for category_name in categories %}
+        
+        {% for post in posts %}
+            {% if category_name in post.categories.all %}
+                <h2 class="subtitle is-3">{{ category_name }}</h2>
+                <div class="blur-white ">
+                    <h3><a href="{% url 'blog_detail' post.pk %}"> {{ post.title }} </a></h3>
+                    <small>
+                        {{ post.created_on.date }} | Categories:
+                        <div class="tags">
+                        {% for category in post.categories.all %}
+                            <a href="{% url 'blog_category' category.name %}">
+                                <span class="tag is-dark">{{ category.name }}</span>
+                            </a>
+                            
+                        {% endfor %}
+                        </div>
+                    
+                    </small>
+                    <p>{{ post.body | slice:":400" }}...
+                        <a href="{% url 'blog_detail' post.pk %}">
+                            <button class="button is-link ">
+                            <span>More</span>
+                            <span class="icon is-small">
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </span>
+                        </button>
+                        </a>
+                    </p>
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+
+    {% endfor %}
+</div>
+{% endblock page_content %}

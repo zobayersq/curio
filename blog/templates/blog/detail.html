@@ -1,40 +1,65 @@
 {% extends "base.html" %}
-
+{% block page_title_last_part %} | Reading: {{ post.title }}{% endblock page_title_last_part %}
 {% block page_title %}
-    <h2>{{ post.title }}</h2>
+
 {% endblock page_title %}
 
 {% block page_content %}
-    <small>
+    <div class="containerX">
+        <div class="title-box-container">
+        
+            <div class="page-title-box"><h1 class="title is-2">{{ post.title }}</h1></div>
+
+    </div>
+        <div class="columnX content is-size-4 blur-white">
+        
+    
         {{ post.created_on.date }} | Categories:
+        <div class="tags">
+        
         {% for category in post.categories.all %}
             <a href="{% url 'blog_category' category.name %}">
-                {{ category.name }}
+                <span class="tag is-hoverable is-primary">{{ category.name }}</span>
             </a>
+        
         {% endfor %}
-    </small>
+    </div>
+
     <p>{{ post.body | linebreaks }}</p>
 
     <h3>Leave a comment:</h3>
-    <form method="post">
+    <div >
+    <form  method="post">
         {% csrf_token %}
         <div>
             {{ form.author }}
         </div>
-        <div>
+        <div >
             {{ form.body }}
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="button is-primary"><i class="bi bi-send"></i> <strong>Submit</strong></button>
     </form>
-
-    <h3>Comments:</h3>
+    </div>
+    <div>
+    <h3 class="page-title-button">Comments:</h3>
     {% for comment in comments %}
         <p>
-            On {{ comment.created_on.date }} <b>{{ comment.author }}</b> wrote:
+            <i class="bi bi-chat-left-heart-fill"></i> On {{ comment.created_on.date }} <b>{{ comment.author }}</b> wrote:
         </p>
-        <p>
+        <div class="block pl-5">
+        
+        <p >
             {{ comment.body | linebreaks }}
         </p>
+        </div>
     {% endfor %}
+    </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+ 
 
 {% endblock page_content %}

@@ -1,6 +1,10 @@
 {% extends "blog/index.html" %}
-
+{% block page_title_last_part %} | Category: {{ category }} {% endblock page_title_last_part %}
 {% block page_title %}
-    <h2>{{ category }}</h2>
+    <div class="title-box-container">
+        <button class="page-title-button">
+                <h1 class="title is-2">{{ category }}</h1>
+        </button>
+    </div>
 {% endblock page_title %}
 

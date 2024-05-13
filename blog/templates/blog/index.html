@@ -1,23 +1,86 @@
 
 {% extends "base.html" %}
-
+{% block page_title_last_part %} | Home{% endblock page_title_last_part %}
 {% block page_title %}
-    <h2>Blog Posts</h2>
+    <section class="hero">
+        <div class="hero-body hero-bodyX is-relative is-flex-tablet container">
+
+        <div class="is-size-4  has-text-weight-semibold">
+            <span>Hi there! Welcome to</span>
+            <p class="title is-1">Curio</p>
+            <p class="subtitle">A Minimal & Comfotable site to share your thoughts & adventure logs.<i class="bi bi-heart-fill"></i></p>
+        </div>
+
+        <div class="hero-image ">
+            {% load static %}
+            <img  src="{% static 'images/logo.png' %}" alt="Curio-logo">
+        </div>
+
+        </div>
+    </section>
+
+    <div class="title-box-container">
+        <button class="page-title-button">
+                <h1 class="title is-2">Posts</h1></div>
+        </button>
+    </div>
+        
+
+    
 {% endblock page_title %}
 
 {% block page_content %}
+
+
     {% block posts %}
+        <div class="container ">
         {% for post in posts %}
+            <div class="blur-white ">
             <h3><a href="{% url 'blog_detail' post.pk %}"> {{ post.title }} </a></h3>
             <small>
                 {{ post.created_on.date }} | Categories:
+                <div class="tags">
                 {% for category in post.categories.all %}
                     <a href="{% url 'blog_category' category.name %}">
-                        {{ category.name }}
+                        <span class="tag is-dark">{{ category.name }}</span>
                     </a>
+                    
                 {% endfor %}
+            </div>
+                
             </small>
-            <p>{{ post.body | slice:":400" }}...</p>
+            <p>{{ post.body | slice:":400" }}...
+                <a href="{% url 'blog_detail' post.pk %}">
+                    <button class="button is-link ">
+                    <span>More</span>
+                    <span class="icon is-small">
+                        <i class="bi bi-arrow-right-circle-fill"></i>
+                    </span>
+                  </button>
+                </a>
+            </p>
+            </div>
         {% endfor %}
+    </div>
     {% endblock posts %}
+
+    
+
+
+
+    <section class="ending-quote">
+
+        <div class="quote-container">
+            <p ><i class="bi bi-chat-quote-fill"></i> Quote of the day </p>
+          <p class="quote-text">" I like living. I have sometimes been wildly, despairingly, acutely miserable, racked with sorrow, but through it all I still know quite certainly that just to be alive is a grand thing."
+    
+          </p>
+          <strong>  Agatha Christie </strong>
+    
+        </div>
+    
+    </section>
+
+
+
 {% endblock page_content %}
