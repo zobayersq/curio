@@ -26,6 +26,19 @@
     </div>
 
     <p>{{ post.body | linebreaks }}</p>
+     <!-- Love button -->
+    <button id="love-btn-{{ post.id }}" class="love-button">
+        {% if request.user in post.love_reactions.all %}
+            ❤️
+        {% else %}
+            🤍
+        {% endif %}
+    </button>
+
+    <p id="love-count-{{ post.id }}">
+        {{ post.get_love_count }} {{ post.get_love_count|pluralize:"love,loves" }}
+    </p>
+
 
     <h3>Leave a comment:</h3>
     <div >

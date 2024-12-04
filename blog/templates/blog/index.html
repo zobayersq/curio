@@ -19,17 +19,19 @@
         </div>
     </section>
 
-    <div class="title-box-container">
-        <button class="page-title-button">
-                <h1 class="title is-2">Posts</h1></div>
-        </button>
-    </div>
-        
 
-    
+
+
 {% endblock page_title %}
 
 {% block page_content %}
+    <div class="container has-text-centered">
+    <div class="container ">
+
+                <h1 class="title is-2">/posts</h1></div>
+
+    </div>
+
 
 
     {% block posts %}
@@ -44,10 +46,10 @@
                     <a href="{% url 'blog_category' category.name %}">
                         <span class="tag is-dark">{{ category.name }}</span>
                     </a>
-                    
+
                 {% endfor %}
             </div>
-                
+
             </small>
             <p>{{ post.body | slice:":400" }}...
                 <a href="{% url 'blog_detail' post.pk %}">
@@ -64,23 +66,22 @@
     </div>
     {% endblock posts %}
 
-    
 
 
 
-    <section class="ending-quote">
+
+    <section class="ending-quote has-text-centered">
 
         <div class="quote-container">
             <p ><i class="bi bi-chat-quote-fill"></i> Quote of the day </p>
-          <p class="quote-text">" I like living. I have sometimes been wildly, despairingly, acutely miserable, racked with sorrow, but through it all I still know quite certainly that just to be alive is a grand thing."
-    
-          </p>
-          <strong>  Agatha Christie </strong>
-    
-        </div>
-    
-    </section>
+          <p class="quote-text">{{ quote }}
 
+          </p>
+
+        </div>
+
+    </section>
+ </div>
 
 
 {% endblock page_content %}

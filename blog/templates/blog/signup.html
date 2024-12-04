@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block page_title %}
+{% endblock page_title %}
+
+{% block page_content %}
+<div class="container">
+    <h1 class="title has-text-centered">Sign Up</h1>
+    <div class="box">
+        <form method="post">
+            {% csrf_token %}
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                    {{ form.username|add_class:"input" }}
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    {{ form.password1|add_class:"input" }}
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Confirm Password</label>
+                <div class="control">
+                    {{ form.password2|add_class:"input" }}
+                </div>
+            </div>
+            <div class="field is-grouped is-grouped-centered">
+                <div class="control">
+                    <button type="submit" class="button is-primary">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock page_content %}
