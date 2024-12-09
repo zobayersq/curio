@@ -73,14 +73,14 @@ WSGI_APPLICATION = 'curio.wsgi.application'
 
 # Database configuration
 
-'''
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgres://user:password@localhost:5432/dbname')
-    )
-}'''
 
 DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL', 'postgresql://${{PGUSER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:5432/${{PGDATABASE}}')
+    )
+}
+
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('DB_NAME'),
@@ -89,7 +89,7 @@ DATABASES = {
         'HOST': env('DB_HOST', default='localhost'),
         'PORT': env('DB_PORT', default='5432'),
     }
-}
+}'''
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
