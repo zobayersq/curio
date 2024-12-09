@@ -18,5 +18,5 @@ urlpatterns = [
      path('api/signup/', views.UserSignupView.as_view(), name='api_signup'),
     path('api/login/', views.UserLoginView.as_view(), name='api_login'),
     path('api/logout/', views.UserLogoutView.as_view(), name='api_logout'),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.BASE_DIR / 'static')
 

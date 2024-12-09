@@ -1,10 +1,16 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 import environ
+import dj_database_url
+import requests
+import ssl
 
+
+load_dotenv()
 # Initialize environment variables
 env = environ.Env(
-    DEBUG=(bool, False),
+    DEBUG=(bool, True),
 )
 environ.Env.read_env()
 
@@ -15,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='your-default-secret-key')  # Change this to an actual secret key for development only!
 
 # SECURITY WARNING: Don't run with debug turned on in production!
-DEBUG = env('DEBUG', default=False)
+DEBUG = env('DEBUG', default=True)
 
 # Allowed hosts for production
 ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOSTS', default='localhost').split(',')
@@ -35,13 +41,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'csp.middleware.CSPMiddleware',  # Ensure this is properly configured with your policy
+    
 ]
 
 ROOT_URLCONF = 'curio.urls'
@@ -65,6 +72,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'curio.wsgi.application'
 
 # Database configuration
+
+'''
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL', 'postgres://user:password@localhost:5432/dbname')
+    )
+}'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -101,14 +116,36 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+# Ensure you have a directory to collect your static files
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Optional: WhiteNoise configuration (this helps with caching, compression, etc.)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Media files configuration
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Security settings
-SECURE_SSL_REDIRECT = True  # Ensures HTTPS in production
+
+#import requests
+#from requests.packages.urllib3.exceptions import InsecureRequestWarning
+
+# Suppress SSL warnings
+#if DEBUG:
+#    requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+# Your request here
+#response = requests.get('https://example.com', verify=False)
+
+
+# Ignore SSL certificate verification in development
+#if settings.DEBUG:
+#    response = requests.get('https://example.com', verify=False)
+#else:
+#    response = requests.get('https://example.com')
+
+SECURE_SSL_REDIRECT = False  # Ensures HTTPS in production
 SECURE_HSTS_SECONDS = 31536000  # 1 year (be careful using this before SSL is active)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
